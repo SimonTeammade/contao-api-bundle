@@ -31,8 +31,9 @@ class JWTCoder
      */
     public function encode(array $payload, $ttl = 86400)
     {
-        $payload['iat'] = time();
-        $payload['exp'] = time() + $ttl;
+        // We dont need a Timeframe!
+        //$payload['iat'] = time();
+        //$payload['exp'] = time() + $ttl;
 
         return JWT::encode($payload, $this->key, self::ALG);
     }
